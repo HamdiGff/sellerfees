@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { display, mono, text } from "./fonts";
 import { abs, DATA_VERIFIED, formatDate, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f6f1e7",
+  themeColor: "#eef1ed",
   width: "device-width",
   initialScale: 1,
 };
@@ -25,7 +26,7 @@ const nav = [
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${display.variable} ${text.variable} ${mono.variable}`}>
       <body>
         <a className="skip" href="#main">
           Skip to content
@@ -34,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="wrap header-inner">
             <a className="logo" href={abs("/")} aria-label="SellCalc home">
               <span className="logo-mark" aria-hidden="true">
-                %
+                $
               </span>
               SellCalc
             </a>

@@ -1,18 +1,22 @@
 :root {
-  --paper: #f6f1e7;
-  --paper-2: #fffdf8;
-  --ink: #1d1b16;
-  --ink-2: #4a463d;
-  --ink-3: #7a7466;
-  --line: #d9d0bf;
-  --accent: #1f5f4a;
-  --accent-2: #e3efe8;
-  --warn: #b42318;
-  --stamp: #c2410c;
-  --radius: 14px;
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
-  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  /* Warehouse light: cool shelf grey, label white, dark ledger green ink,
+     a highlighter for the number you keep, red for what's taken. */
+  --paper: #eef1ed;
+  --paper-2: #f8faf7;
+  --ink: #14231c;
+  --ink-2: #3c4a43;
+  --ink-3: #66746c;
+  --line: #c9d2cb;
+  --accent: #12784a;
+  --accent-2: #e2f0e7;
+  --highlight: #f6dd2a;
+  --warn: #b8321a;
+  --stamp: #b8321a;
+  --radius: 10px;
+  --serif: var(--font-display), "Arial Narrow", system-ui, sans-serif;
+  --display: var(--font-display), system-ui, sans-serif;
+  --sans: var(--font-text), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
 }
 
 *,
@@ -30,6 +34,12 @@ body {
   background: var(--paper);
   color: var(--ink);
   font: 17px/1.6 var(--sans);
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 a {
@@ -44,10 +54,11 @@ a:hover {
 h1,
 h2,
 h3 {
-  font-family: var(--serif);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  font-family: var(--display);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   font-weight: 700;
+  text-wrap: balance;
 }
 
 h1 {
@@ -118,12 +129,13 @@ h3 {
 .logo-mark {
   display: inline-grid;
   place-items: center;
-  width: 1.8rem;
-  height: 1.8rem;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #fff;
-  font: 700 0.95rem/1 var(--mono);
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 6px;
+  background: var(--highlight);
+  color: var(--ink);
+  font: 800 1.05rem/1 var(--display);
+  transform: rotate(-6deg);
 }
 
 .site-header nav ul {
@@ -163,14 +175,20 @@ h3 {
 }
 
 .updated {
-  display: inline-block;
-  font: 0.78rem/1 var(--mono);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--accent);
-  border: 1px solid currentColor;
-  border-radius: 999px;
-  padding: 0.35rem 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  color: var(--ink-2);
+}
+
+.updated::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-2);
 }
 
 /* Calculator layout */
@@ -308,7 +326,7 @@ select:focus {
 }
 
 input[type="number"] {
-  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
 }
 
 .hint {
@@ -409,7 +427,7 @@ details.costs summary {
   background: #fff;
   border-radius: 4px;
   padding: 1.3rem 1.3rem 1rem;
-  box-shadow: 0 1px 0 var(--line), 0 18px 40px -26px rgba(29, 27, 22, 0.45);
+  box-shadow: 0 0 0 1px var(--line), 0 14px 30px -22px rgba(20, 35, 28, 0.55);
   position: relative;
   font-size: 0.97rem;
 }
@@ -443,10 +461,9 @@ details.costs summary {
 }
 
 .receipt-date {
-  font: 0.75rem/1.8 var(--mono);
-  color: var(--stamp);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: var(--ink-3);
 }
 
 .receipt-row {
@@ -483,7 +500,6 @@ details.costs summary {
 }
 
 .num {
-  font-family: var(--mono);
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
@@ -502,14 +518,16 @@ details.costs summary {
   margin-top: 0.6rem;
   padding: 0.7rem 0 0.2rem;
   border-top: 2px solid var(--ink);
-  font-family: var(--serif);
+  font-family: var(--display);
   font-weight: 700;
   font-size: 1.35rem;
 }
 
 .receipt-row.payout .num {
-  font-size: 1.3rem;
-  color: var(--accent);
+  font-size: 1.35rem;
+  color: var(--ink);
+  background: linear-gradient(transparent 55%, var(--highlight) 55%);
+  padding: 0 0.15rem;
 }
 
 .receipt-row.profit {
@@ -577,9 +595,8 @@ details.costs summary {
 }
 
 .reverse-answer strong {
-  font-family: var(--mono);
   font-size: 1.2rem;
-  color: var(--accent);
+  background: linear-gradient(transparent 55%, var(--highlight) 55%);
 }
 
 .muted {
@@ -611,7 +628,8 @@ details.costs summary {
 }
 
 .chip {
-  font: 0.85rem var(--mono);
+  font: 0.88rem var(--sans);
+  font-variant-numeric: tabular-nums;
   border: 1px solid var(--line);
   background: #fff;
   border-radius: 999px;
@@ -644,11 +662,9 @@ details.costs summary {
 }
 
 .badge {
-  font: 600 0.7rem/1 var(--mono);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  background: var(--accent);
-  color: #fff;
+  font: 700 0.78rem/1 var(--sans);
+  background: var(--highlight);
+  color: var(--ink);
   border-radius: 999px;
   padding: 0.3rem 0.5rem;
 }
@@ -711,11 +727,9 @@ details.costs summary {
 }
 
 .prose th {
-  font-family: var(--sans);
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--ink-3);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink-2);
 }
 
 .prose td.num,
@@ -852,10 +866,8 @@ details.costs summary {
 }
 
 .card .tag {
-  font: 0.72rem/1 var(--mono);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--stamp);
+  font-size: 0.85rem;
+  color: var(--ink-3);
 }
 
 .card strong {
@@ -893,9 +905,9 @@ details.costs summary {
 }
 
 .history time {
-  font: 0.8rem var(--mono);
-  color: var(--stamp);
-  text-transform: uppercase;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink-2);
 }
 
 .history h3 {
@@ -970,5 +982,254 @@ details.costs summary {
   }
   select {
     font-size: 0.95rem;
+  }
+}
+
+/* ---------- Home ---------- */
+.home-hero {
+  padding: clamp(2rem, 6vw, 4.5rem) 0 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.home-title {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-family: var(--sans);
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--ink-2);
+  margin: 0 0 1.2rem;
+}
+
+.quick {
+  max-width: 60rem;
+}
+
+.quick-sentence,
+.quick-result {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 6.4vw, 4.6rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.quick-sentence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15em 0.3em;
+}
+
+.quick-sentence label {
+  cursor: default;
+}
+
+.quick-price {
+  display: inline-flex;
+  align-items: baseline;
+  border-bottom: 0.08em solid var(--ink);
+}
+
+.quick-price input {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  width: 3.4ch;
+  padding: 0;
+  min-height: 0;
+  -moz-appearance: textfield;
+}
+
+.quick-price input::-webkit-outer-spin-button,
+.quick-price input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quick-sentence select {
+  font: inherit;
+  letter-spacing: inherit;
+  width: auto;
+  max-width: 100%;
+  min-height: 0;
+  line-height: 1.12;
+  padding: 0 1.1em 0.02em 0;
+  border: 0;
+  border-bottom: 0.08em solid var(--ink);
+  border-radius: 0;
+  background-color: transparent;
+  background-position: calc(100% - 0.45em) 55%, calc(100% - 0.2em) 55%;
+  background-size: 0.22em 0.22em;
+}
+
+.quick-keep {
+  background: linear-gradient(transparent 58%, var(--highlight) 58%);
+  padding: 0 0.08em;
+  white-space: nowrap;
+}
+
+.quick-lines {
+  list-style: none;
+  padding: 0;
+  margin: 1.4rem 0 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.6rem;
+  font-size: 1rem;
+  color: var(--ink-2);
+}
+
+.quick-lines li {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.quick-lines .minus {
+  color: var(--warn);
+  font-weight: 700;
+}
+
+.quick-lines .zero {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.quick-more {
+  font-weight: 700;
+}
+
+.home-checked {
+  margin: 1.6rem 0 0;
+}
+
+.home-section {
+  padding: 2.4rem 0 0.4rem;
+}
+
+.home-section > h2,
+.home-split h2 {
+  margin-top: 0;
+}
+
+.section-note {
+  color: var(--ink-3);
+  margin: -0.3rem 0 0.8rem;
+}
+
+.calc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 2px solid var(--ink);
+}
+
+.calc-list a {
+  display: grid;
+  grid-template-columns: minmax(12rem, 18rem) 1fr;
+  gap: 0.3rem 2rem;
+  padding: 1rem 0.2rem;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.calc-list a:hover .calc-name {
+  background: linear-gradient(transparent 60%, var(--highlight) 60%);
+}
+
+.calc-name {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.25;
+  justify-self: start;
+}
+
+.calc-covers {
+  color: var(--ink-2);
+  max-width: 60ch;
+}
+
+@media (max-width: 640px) {
+  .calc-list a {
+    grid-template-columns: 1fr;
+  }
+}
+
+.home-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 2.5rem;
+}
+
+@media (max-width: 860px) {
+  .home-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+table.rates {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.97rem;
+  background: var(--paper-2);
+  border-top: 2px solid var(--ink);
+}
+
+.rates th,
+.rates td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.65rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.rates thead th {
+  font-size: 0.88rem;
+  color: var(--ink-3);
+}
+
+.rates tbody th {
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.history.compact li {
+  padding-bottom: 1rem;
+}
+
+.history.compact p {
+  margin: 0.1rem 0 0;
+}
+
+.faq {
+  max-width: 70ch;
+  border-top: 2px solid var(--ink);
+}
+
+.faq details {
+  border-bottom: 1px solid var(--line);
+  padding: 0.2rem 0;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.08rem;
+  padding: 0.8rem 0;
+  list-style-position: outside;
+}
+
+.faq details p {
+  margin: 0 0 1rem;
+  color: var(--ink-2);
+}
+
+@media (max-width: 640px) {
+  .rates tbody th {
+    white-space: normal;
   }
 }
