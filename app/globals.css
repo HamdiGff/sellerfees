@@ -1242,3 +1242,215 @@ table.rates {
     width: auto;
   }
 }
+
+/* ---------- Tool page sections ---------- */
+.page-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+  padding: 0.9rem 0;
+  margin: 0.5rem 0 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.page-index a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.page-index a:hover {
+  background: linear-gradient(transparent 60%, var(--highlight) 60%);
+}
+
+.page-band {
+  padding: 1.2rem 0 0.4rem;
+  scroll-margin-top: 1rem;
+}
+
+.ladder-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 1.8rem;
+  align-items: start;
+  margin: 0.4rem 0 1rem;
+}
+
+@media (max-width: 960px) {
+  .ladder-wrap {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+table.ladder {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95rem;
+  background: var(--paper-2);
+  border-top: 2px solid var(--ink);
+}
+
+.ladder th,
+.ladder td {
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.ladder thead th {
+  font-size: 0.84rem;
+  color: var(--ink-3);
+  vertical-align: bottom;
+  line-height: 1.3;
+}
+
+.ladder .num {
+  text-align: right;
+}
+
+.ladder td.keep {
+  font-weight: 700;
+}
+
+.ladder tbody tr:hover {
+  background: #fff;
+}
+
+/* Charts */
+.chart {
+  margin: 0.4rem 0 1.4rem;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1rem 0.6rem;
+  max-width: 760px;
+}
+
+.chart figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-bottom: 0.6rem;
+}
+
+.chart figcaption strong {
+  font-family: var(--display);
+  font-size: 1.1rem;
+}
+
+.chart figcaption span {
+  font-size: 0.86rem;
+  color: var(--ink-3);
+}
+
+.chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.chart .grid {
+  stroke: #dfe5e0;
+  stroke-width: 1;
+}
+
+.chart .tick,
+.chart .axis-title {
+  font: 12px var(--sans);
+  fill: var(--ink-3);
+}
+
+.chart .end-label,
+.chart .bar-value {
+  font: 700 13px var(--sans);
+  fill: var(--ink-2);
+}
+
+.chart .bar-label {
+  font: 13px var(--sans);
+  fill: var(--ink-2);
+}
+
+.chart-legend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.2rem;
+  padding: 0;
+  margin: 0 0 0.4rem;
+  font-size: 0.86rem;
+  color: var(--ink-2);
+}
+
+.chart-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Offsite Ads planner */
+.planner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin: 0.6rem 0 1.4rem;
+}
+
+@media (max-width: 860px) {
+  .planner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.compare-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.compare-pair > div {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.8rem 0.9rem;
+}
+
+.pair-label {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--ink-2);
+}
+
+.pair-num {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.7rem;
+  line-height: 1.2;
+}
+
+.compare-pair .neg .pair-num {
+  color: var(--warn);
+}
+
+.pair-sub {
+  font-size: 0.82rem;
+  color: var(--ink-3);
+}
+
+.planner-verdict {
+  font-size: 1.02rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.prose h3 {
+  margin-top: 1.4rem;
+}
