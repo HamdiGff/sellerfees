@@ -180,10 +180,14 @@ h3 {
   background: var(--accent-2);
 }
 
-.nav-desktop a[aria-current="page"] {
+.nav-desktop a[aria-current="page"],
+.nav-panel-group a[aria-current="page"] {
   color: var(--ink);
-  background: linear-gradient(transparent 62%, var(--highlight) 62%);
-  border-radius: 0;
+  text-decoration: underline;
+  text-decoration-color: var(--highlight);
+  text-decoration-thickness: 0.5em;
+  text-underline-offset: -0.3em;
+  text-decoration-skip-ink: none;
 }
 
 .nav-log {
@@ -280,10 +284,6 @@ h3 {
   color: var(--ink);
   text-decoration: none;
   border-bottom: 1px solid var(--line);
-}
-
-.nav-panel-group a[aria-current="page"] {
-  background: linear-gradient(transparent 62%, var(--highlight) 62%);
 }
 
 .nav-panel-log {
