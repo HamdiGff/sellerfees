@@ -146,6 +146,8 @@ h3 {
 
 .nav-desktop {
   margin-left: auto;
+  display: flex;
+  align-items: center;
 }
 
 .nav-desktop ul {
@@ -154,7 +156,15 @@ h3 {
   align-items: center;
   gap: 0.2rem;
   margin: 0;
-  padding: 0;
+  padding: 0 0.6rem;
+}
+
+.nav-desktop ul + ul {
+  border-left: 1px solid var(--line);
+}
+
+.nav-desktop ul:last-child {
+  padding-right: 0;
 }
 
 .nav-desktop a {
