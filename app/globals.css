@@ -1272,16 +1272,9 @@ table.rates {
 
 .ladder-wrap {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-  gap: 1.8rem;
-  align-items: start;
+  gap: 1.6rem;
   margin: 0.4rem 0 1rem;
-}
-
-@media (max-width: 960px) {
-  .ladder-wrap {
-    grid-template-columns: minmax(0, 1fr);
-  }
+  max-width: 760px;
 }
 
 table.ladder {
@@ -1386,6 +1379,7 @@ table.ladder {
 }
 
 .chart-legend li {
+  white-space: nowrap;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
