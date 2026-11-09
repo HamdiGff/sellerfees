@@ -16,7 +16,7 @@
   --serif: var(--font-display), "Arial Narrow", system-ui, sans-serif;
   --display: var(--font-display), system-ui, sans-serif;
   --sans: var(--font-text), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --mono: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+  --mono: ui-monospace, Menlo, Consolas, monospace;
 }
 
 *,
@@ -101,28 +101,29 @@ h3 {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(248, 250, 247, 0.94);
-  backdrop-filter: saturate(1.4) blur(8px);
-  border-bottom: 2px solid var(--ink);
+  background: rgba(238, 241, 237, 0.9);
+  backdrop-filter: saturate(1.5) blur(10px);
+  -webkit-backdrop-filter: saturate(1.5) blur(10px);
+  border-bottom: 1px solid var(--line);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  min-height: 4rem;
+  gap: 2rem;
+  min-height: 4.25rem;
 }
 
 .logo {
   font-family: var(--display);
-  font-weight: 800;
-  font-size: 1.4rem;
-  letter-spacing: -0.03em;
+  font-weight: 750;
+  font-size: 1.45rem;
+  letter-spacing: -0.035em;
   color: var(--ink);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.5rem;
   flex: none;
 }
 
@@ -130,78 +131,81 @@ h3 {
   color: var(--ink);
 }
 
-.logo:hover .logo-mark {
-  transform: rotate(-6deg);
-}
-
 .logo-mark {
   transition: transform 0.2s ease;
 }
 
+.logo:hover .logo-mark {
+  transform: rotate(-6deg);
+}
+
 .logo.small {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   margin: 0 0 0.3rem;
 }
 
 .nav-desktop {
-  display: flex;
-  align-items: center;
-  gap: 0;
   margin-left: auto;
 }
 
-.nav-group {
+.nav-desktop ul {
   list-style: none;
   display: flex;
-  gap: 0.15rem;
+  align-items: center;
+  gap: 0.2rem;
   margin: 0;
-  padding: 0 0.75rem;
+  padding: 0;
 }
 
-.nav-group + .nav-group {
-  border-left: 1px solid var(--line);
-}
-
-.nav-desktop a,
-.nav-log {
-  display: inline-block;
-  padding: 0.4rem 0.55rem;
-  border-radius: 6px;
+.nav-desktop a {
+  display: block;
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
   color: var(--ink-2);
-  font-weight: 700;
-  font-size: 0.95rem;
+  font-weight: 500;
+  font-size: 0.98rem;
   text-decoration: none;
   line-height: 1.2;
 }
 
-.nav-desktop a:hover,
-.nav-log:hover {
+.nav-desktop a:hover {
   color: var(--ink);
-  background: var(--accent-2);
+  background: rgba(20, 35, 28, 0.06);
 }
 
 .nav-desktop a[aria-current="page"],
 .nav-panel-group a[aria-current="page"] {
   color: var(--ink);
+  font-weight: 650;
   text-decoration: underline;
   text-decoration-color: var(--highlight);
-  text-decoration-thickness: 0.5em;
-  text-underline-offset: -0.3em;
+  text-decoration-thickness: 0.45em;
+  text-underline-offset: -0.28em;
   text-decoration-skip-ink: none;
 }
 
 .nav-log {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  border: 1.5px solid var(--ink);
-  border-radius: 999px;
-  padding: 0.38rem 0.85rem;
-  color: var(--ink);
+  gap: 0.5rem;
   flex: none;
+  padding: 0.5rem 0.95rem;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.nav-log:hover {
+  color: var(--ink);
+  background: var(--highlight);
 }
 
 .nav-log[aria-current="page"] {
+  color: var(--ink);
   background: var(--highlight);
 }
 
@@ -209,8 +213,8 @@ h3 {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-2);
+  background: #3fcf86;
+  box-shadow: 0 0 0 3px rgba(63, 207, 134, 0.25);
 }
 
 .nav-mobile {
@@ -223,12 +227,13 @@ h3 {
   list-style: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   cursor: pointer;
-  font-weight: 700;
-  border: 1.5px solid var(--ink);
-  border-radius: 999px;
-  padding: 0.4rem 0.85rem;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.5rem 0.85rem;
+  background: var(--ink);
+  color: #fff;
 }
 
 .nav-mobile summary::-webkit-details-marker {
@@ -237,6 +242,7 @@ h3 {
 
 .nav-mobile[open] summary {
   background: var(--highlight);
+  color: var(--ink);
 }
 
 .burger {
@@ -248,7 +254,7 @@ h3 {
 .burger span {
   width: 14px;
   height: 2px;
-  background: var(--ink);
+  background: currentColor;
   border-radius: 2px;
 }
 
@@ -258,28 +264,28 @@ h3 {
   top: calc(100% + 0.6rem);
   width: min(19rem, calc(100vw - 1.5rem));
   background: var(--paper-2);
-  border: 2px solid var(--ink);
-  border-radius: var(--radius);
-  padding: 0.9rem 1rem 1rem;
-  box-shadow: 0 18px 40px -20px rgba(20, 35, 28, 0.45);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.8rem 1rem 1rem;
+  box-shadow: 0 24px 48px -24px rgba(20, 35, 28, 0.5);
 }
 
 .nav-panel-group p {
-  margin: 0.4rem 0 0.2rem;
+  margin: 0.5rem 0 0.15rem;
   font-size: 0.82rem;
   color: var(--ink-3);
 }
 
 .nav-panel-group ul {
   list-style: none;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.4rem;
   padding: 0;
 }
 
 .nav-panel-group a {
   display: block;
-  padding: 0.45rem 0;
-  font-weight: 700;
+  padding: 0.5rem 0;
+  font-weight: 500;
   font-size: 1.05rem;
   color: var(--ink);
   text-decoration: none;
@@ -290,8 +296,8 @@ h3 {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 0.5rem;
-  font-weight: 700;
+  margin-top: 0.7rem;
+  font-weight: 600;
   color: var(--ink);
 }
 
@@ -454,7 +460,7 @@ select:focus {
   top: 50%;
   transform: translateY(-50%);
   color: var(--ink-3);
-  font: 0.95rem var(--mono);
+  font: 0.95rem var(--sans);
   pointer-events: none;
 }
 
@@ -641,7 +647,7 @@ details.costs summary {
   margin: 0.1rem 0 0;
   font-size: 0.8rem;
   color: var(--ink-3);
-  font-family: var(--mono);
+  font-family: var(--sans);
   line-height: 1.45;
   word-break: break-word;
 }
@@ -763,7 +769,7 @@ details.costs summary {
 
 .num.big {
   font-size: 2.2rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--accent);
   line-height: 1.2;
 }
@@ -801,7 +807,7 @@ details.costs summary {
 }
 
 .compare-name {
-  font-weight: 700;
+  font-weight: 600;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -809,7 +815,7 @@ details.costs summary {
 }
 
 .badge {
-  font: 700 0.78rem/1 var(--sans);
+  font: 600 0.78rem/1 var(--sans);
   background: var(--highlight);
   color: var(--ink);
   border-radius: 999px;
@@ -875,7 +881,7 @@ details.costs summary {
 
 .prose th {
   font-size: 0.88rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--ink-2);
 }
 
@@ -915,7 +921,7 @@ details.costs summary {
 }
 
 .worked li {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.86rem;
 }
 
@@ -1053,7 +1059,7 @@ details.costs summary {
 
 .history time {
   font-size: 0.88rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--ink-2);
 }
 
@@ -1069,7 +1075,7 @@ details.costs summary {
 }
 
 .change {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.88rem;
 }
 
@@ -1141,7 +1147,7 @@ details.costs summary {
 .home-title {
   font-size: clamp(1.05rem, 2vw, 1.25rem);
   font-family: var(--sans);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0;
   color: var(--ink-2);
   margin: 0 0 1.2rem;
@@ -1239,16 +1245,16 @@ details.costs summary {
 
 .quick-lines .minus {
   color: var(--warn);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .quick-lines .zero {
   color: var(--accent);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .quick-more {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .home-checked {
@@ -1292,7 +1298,7 @@ details.costs summary {
 
 .calc-name {
   font-family: var(--display);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.3rem;
   line-height: 1.25;
   justify-self: start;
@@ -1344,7 +1350,7 @@ table.rates {
 
 .rates tbody th {
   white-space: nowrap;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .history.compact li {
@@ -1367,7 +1373,7 @@ table.rates {
 
 .faq summary {
   cursor: pointer;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.08rem;
   padding: 0.8rem 0;
   list-style-position: outside;
@@ -1399,7 +1405,7 @@ table.rates {
   margin: 0.5rem 0 0;
   border-top: 2px solid var(--ink);
   border-bottom: 1px solid var(--line);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.95rem;
 }
 
@@ -1451,7 +1457,7 @@ table.ladder {
 }
 
 .ladder td.keep {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .ladder tbody tr:hover {
@@ -1505,7 +1511,7 @@ table.ladder {
 
 .chart .end-label,
 .chart .bar-value {
-  font: 700 13px var(--sans);
+  font: 600 13px var(--sans);
   fill: var(--ink-2);
 }
 
@@ -1567,7 +1573,7 @@ table.ladder {
 
 .pair-label {
   font-size: 0.86rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--ink-2);
 }
 

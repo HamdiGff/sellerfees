@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { display, mono, text } from "./fonts";
+import { display, text } from "./fonts";
 import { SiteHeader } from "@/components/SiteHeader";
 import { abs, DATA_VERIFIED, formatDate, SITE_NAME, SITE_URL } from "@/lib/site";
 
@@ -20,7 +20,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${text.variable} ${mono.variable}`}>
+    <html lang="en" className={`${display.variable} ${text.variable}`}>
       <body>
         <a className="skip" href="#main">
           Skip to content

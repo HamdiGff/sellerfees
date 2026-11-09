@@ -9,16 +9,8 @@ export const display = localFont({
 });
 
 export const text = localFont({
-  src: "./fonts/atkinson.woff2",
+  src: "./fonts/onest.woff2",
   variable: "--font-text",
-  weight: "200 800",
+  weight: "100 900",
   display: "swap",
-});
-
-export const mono = localFont({
-  src: "./fonts/atkinson-mono.woff2",
-  variable: "--font-mono",
-  weight: "200 800",
-  display: "swap",
-  preload: false,
 });

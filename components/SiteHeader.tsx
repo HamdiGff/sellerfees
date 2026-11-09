@@ -59,17 +59,15 @@ export function SiteHeader() {
         </a>
 
         <nav className="nav-desktop" aria-label="Calculators">
-          {GROUPS.map((g) => (
-            <ul key={g.label} className="nav-group">
-              {g.links.map((l) => (
-                <li key={l.href}>
-                  <a href={abs(l.href)} aria-current={isOn(l.href) ? "page" : undefined}>
-                    {l.short}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          ))}
+          <ul>
+            {GROUPS.flatMap((g) => g.links).map((l) => (
+              <li key={l.href}>
+                <a href={abs(l.href)} aria-current={isOn(l.href) ? "page" : undefined}>
+                  {l.short}
+                </a>
+              </li>
+            ))}
+          </ul>
         </nav>
 
         <a className="nav-log" href={abs("/fee-history/")} aria-current={isOn("/fee-history/") ? "page" : undefined}>
