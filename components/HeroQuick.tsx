@@ -10,19 +10,19 @@ import { money, SYMBOL } from "./ui";
 type Option = { id: string; label: string; currency: string; path: string; run: (price: number) => FeeResult };
 
 const OPTIONS: Option[] = [
-  { id: "etsy-us", label: "Etsy in the US", currency: "USD", path: "/etsy-fee-calculator/", run: (p) => etsyFees({ country: "US", itemPrice: p, shippingCharged: 0, offsiteAds: "none" }) },
-  { id: "etsy-uk", label: "Etsy in the UK", currency: "GBP", path: "/etsy-fee-calculator-uk/", run: (p) => etsyFees({ country: "UK", itemPrice: p, shippingCharged: 0, offsiteAds: "none" }) },
+  { id: "etsy-us", label: "Etsy US", currency: "USD", path: "/etsy-fee-calculator/", run: (p) => etsyFees({ country: "US", itemPrice: p, shippingCharged: 0, offsiteAds: "none" }) },
+  { id: "etsy-uk", label: "Etsy UK", currency: "GBP", path: "/etsy-fee-calculator-uk/", run: (p) => etsyFees({ country: "UK", itemPrice: p, shippingCharged: 0, offsiteAds: "none" }) },
   { id: "ebay-us", label: "eBay.com", currency: "USD", path: "/ebay-fee-calculator/", run: (p) => ebayUsFees({ categoryId: "most", itemPrice: p, shippingCharged: 0 }) },
   {
     id: "ebay-uk-biz",
-    label: "eBay UK as a business",
+    label: "eBay UK (business)",
     currency: "GBP",
     path: "/ebay-fee-calculator-uk/",
     run: (p) => ebayUkFees({ sellerType: "business", categoryId: "everything", itemPrice: p, shippingCharged: 0 }),
   },
   {
     id: "ebay-uk-private",
-    label: "eBay UK privately",
+    label: "eBay UK (private)",
     currency: "GBP",
     path: "/ebay-fee-calculator-uk/",
     run: (p) => ebayUkFees({ sellerType: "private", categoryId: "everything", itemPrice: p, shippingCharged: 0 }),
