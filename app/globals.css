@@ -957,3 +957,18 @@ details.costs summary {
     transition: none !important;
   }
 }
+
+@media (max-width: 400px) {
+  .wrap {
+    width: calc(100% - 1.5rem);
+  }
+  .calc-inputs,
+  .bits-box,
+  .reverse,
+  .compare {
+    padding: 1rem 0.9rem;
+  }
+  select {
+    font-size: 0.95rem;
+  }
+}

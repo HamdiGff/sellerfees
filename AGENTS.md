@@ -14,7 +14,7 @@ SellCalc is a static Next.js site of marketplace fee calculators. Accuracy is th
 - Internal links: always `abs("/path/")` from `lib/site.ts` (absolute URLs, trailing slash).
 - No new dependencies without a clear reason. No server functions except static route handlers.
 - All compute runs in the browser. Never send user inputs anywhere.
-- Select/inputs: labels in dropdowns must be 30 characters or fewer so they never clip on mobile.
+- Select/inputs: labels in dropdowns must be 24 characters or fewer so they never clip on mobile.
 - Performance budget: tool route JS under 150 KB gzipped, LCP under 2 s on mobile, CLS under 0.05.
 - Before pushing: `npm run typecheck && npm test && npm run build`.
 
