@@ -1038,7 +1038,7 @@ details.costs summary {
   background: transparent;
   border: 0;
   width: 3.4ch;
-  min-width: 1.2ch;
+  min-width: 1ch;
   padding: 0;
   min-height: 0;
   -moz-appearance: textfield;
@@ -1234,5 +1234,11 @@ table.rates {
 @media (max-width: 640px) {
   .rates tbody th {
     white-space: normal;
+  }
+}
+
+@supports (field-sizing: content) {
+  .quick-price input {
+    width: auto;
   }
 }
